@@ -28,7 +28,7 @@
 5. **リワード広告が承認されてから**、レート戦の回数制限(1日3回無料・4回目からリワード)を有効化
 
 ## 4. サーバーの公開(Cloudflare)
-手順は `docs/公開手順.md` の案C。要点:
+**2026-11-15 から、画面は Cloudflare Pages(`reply-war-game.pages.dev`)・対戦サーバーは Workers(`reply-war-game.nrwebgame.workers.dev`)に分けた**(museの `separated-config-patch` を、反映済み。`docs/公開手順.md` の「現在の構成」を参照)。**画面の公開は `npx wrangler pages deploy public --project-name reply-war-game`**(`./scripts/build.sh` のあと)。以下の手順は、サーバー側(Workers)の要点(元は、画面も Workers から配る構成だった。いまは、画面を配らない):
 ```bash
 cd server && npm install                       # node_modules は、zip に入っていない
 npx wrangler login                             # ユーザーが、ブラウザで許可する
